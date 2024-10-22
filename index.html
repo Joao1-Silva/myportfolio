@@ -3,124 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi!</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #0f4c5c;
-        }
-        .parent {
-            width: 100%;
-            height: 100%;
-            display: grid;
-            place-items: center
-        }
-        .child {
-            text-align: center;
-            color: white;
-        }
-        .title {
-            display: block;
-            font-family: monospace;
-            white-space: nowrap;
-            border-right: 4px solid;
-            width: 21ch;
-
-            animation: typing 2s steps(21), blink .5s infinite step-end alternate;
-            overflow: hidden;
-        }
-        .content {
-            display: block;
-            font-family: monospace;
-            white-space: nowrap;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
-
-        .photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        article {
-            position: relative;
-            width: 70px;
-            transition: all .3s ease;
-        }
-        article img:first-child {
-            box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
-            object-fit: cover;
-            width: 100%;
-        }
-        article img:last-child {
-            position: absolute;
-            border-radius: 5px;
-            width: 50px;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            transform: translateY(25%);
-            transition: .3s ease;
-            opacity: 0;
-        }
-        article:hover {
-            transform:
-                perspective(250px)
-                rotateX(10deg)
-                translateY(-5%)
-                translateZ(0)
-        }
-        article::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
-            background-image: 
-            linear-gradient(
-                to bottom,
-                transparent 10%,
-                #0f4c5c 50%,
-                #0f4c5c 95%
-            );
-            opacity: 0;
-            transition: all .3s ease;
-        }
-        article:hover::before {
-            opacity: 1;
-
-        }
-        article:hover img:last-child {
-            opacity: 1;
-            transform: translateY(10%)
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Jonathan Silva</title>
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
-    <div class="parent">
+    <div class="wel">
         <div class="child">
             <img class="photo" src="/src/img/profilephoto.JPG">
             <h1 class="title">Hi, Im Jonathan Silva</h1>
             <p class="content">Full Stack Developer</p>
         </div>
-        <div class="social">
-            <article>
-                <a href="https://www.twitch.tv/shoaojs" target="_blank">
-                    <img class="twichcard" src="src/img/twitchcard.webp">
-                    <img class="card" src="src/img/card.jpg">
-                </a>
-            </article>
+    </div>
+    <header>
+        <div class="parent">
+            <nav class="nav glass">
+                <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
+    <div class="build" alt="#">
+        <h1 class="btext">Building</h1>
+    </div>
+
+    <!-- <div class="banner">
+        <div class="product">
+            <div class="soda" style="--url: url(../images/bg.png)">
+            </div>
+            <div class="soda" style="--url: url(../images/bg2.png)">
+            </div>
+        </div>
+
+    </div> -->
+
+    <div class="social">
+        <article>
+            <a href="https://www.twitch.tv/shoaojs" target="_blank">
+                <img class="twichcard" src="src/img/twitchcard.webp">
+                <img class="card" src="src/img/card.jpg">
+            </a>
+        </article>
     </div>
 </body>
 </html>
