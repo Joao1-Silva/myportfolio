@@ -1,285 +1,506 @@
-*{
-    padding: 0;
-    margin: 0;
+:root {
+    --primary-color: #0f4c5c;
+    --secondary-color: #1E1E1E;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --accent-color: #3498db;
+    --transition: all 0.3s ease;
 }
 
-.build {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura según sea necesario */
-  }
-
-.btext {
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #fff;
-}
-
-.glass{
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-.social {
-    position: fixed;  /* Ensures the div stays in place even when scrolling */
-    bottom: 0;        /* Places it at the bottom of the viewport */
-    right: 0;         /* Positions it at the right edge */
-    z-index: 999;     /* Makes sure it appears on top of other elements */
-    padding: 5px;
-  }
-  
-  .social article a {
-    /* Additional styles to remove default anchor element padding and margin */
-    padding: 0;
-    margin: 0;
-  }
-
-.wel {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
-    background-color: #0f4c5c;
-    z-index: 100;
-    position: fixed;
-
-    animation: OutFromLeft
-                2s cubic-bezier(0.4, 0, 0.2, 1) forwards 3s;
+    box-sizing: border-box;
 }
 
-@keyframes OutFromLeft {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-200%);
-    }
+html {
+    scroll-behavior: smooth;
 }
 
-nav {
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Navigation */
+.nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 99; /* Asegúrate de que esté por encima de otros elementos */
-    
-    display: flex; /* Utilizamos flexbox para un fácil centrado */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
 }
 
-nav ul {
-    list-style: none;
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-  }
-  
-  nav li {
-    margin: 0 1rem;
-  }
-  
-  nav a {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav a {
     text-decoration: none;
-    color: #fff; /* Color de texto que combina con el fondo */
-    font-weight: bold; /* Texto en negrita para destacar */
-    transition: color 0.3s ease-in-out; /* Transición suave al pasar el ratón */
-  }
-  
-  nav a:hover {
-    color: #1E1E1E; /* Color al pasar el ratón */
-  }
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
 
+.nav a:hover {
+    color: var(--primary-color);
+}
 
-.child {
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a6985 100%);
     color: white;
 }
-.title {
-    font-family: Poppins;
-    display: block;
-    font-family: monospace;
-    white-space: nowrap;
-    border-right: 4px solid;
-    width: 21ch;
 
-    animation: typing 2s steps(21), blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-.content {
-    font-family: Poppins;
-    display: block;
-    font-family: monospace;
-    white-space: nowrap;
+.hero-content {
+    max-width: 800px;
 }
 
-@keyframes typing {
-    from { width: 0 }
-}
-
-@keyframes blink {
-    50% { border-color: transparent }
-}
-
-.photo {
-    width: 150px;
-    height: 150px;
+.profile-photo {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-}
-article {
-    position: relative;
-    width: 70px;
-    transition: all .3s ease;
-}
-article img:first-child {
-    box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
-    object-fit: cover;
-    width: 100%;
-}
-article img:last-child {
-    position: absolute;
-    border-radius: 5px;
-    width: 50px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateY(25%);
-    transition: .3s ease;
-    opacity: 0;
-}
-article:hover {
-    transform:
-        perspective(250px)
-        rotateX(10deg)
-        translateY(-5%)
-        translateZ(0)
-}
-article::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background-image: 
-    linear-gradient(
-        to bottom,
-        transparent 10%,
-        transparent 50%,
-        transparent 95%
-    );
-    opacity: 0;
-    transition: all .3s ease;
-}
-article:hover::before {
-    opacity: 1;
-
-}
-article:hover img:last-child {
-    opacity: 1;
-    transform: translateY(10%)
+    border: 4px solid white;
+    margin-bottom: 2rem;
 }
 
-
-body{
-    min-height: 100vh;
-    margin: 0;
-    color: #1E1E1E;
-    background-color: #CDCDCD;
-    background-image:
-    repeating-linear-gradient(
-        to right, transparent 0 150px, #0001 150px 151px
-    ),
-    repeating-linear-gradient(
-        to bottom, transparent 0 150px, #0001 150px 151px
-    ),
-    linear-gradient(to bottom, #0f4c5c, #0e1821);
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
+.typing-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
 
-.banner{
-    height: 100vh;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Sections */
+section {
+    padding: 5rem 2rem;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-category i {
+    color: var(--primary-color);
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
 }
 
-.product{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 170px;
-    z-index: 2;
-    width: 500px;
-    transition: 0.7s;
-}
-.product .soda{
-    position: absolute;
-    bottom: 0;
-    left: calc(50%);
-    transform: translateX(-50%);
-}
-.soda{
-    --left: 0px;
-    background: 
-        var(--url) var(--left),
-        url(../images/mockup.png) 0 0;
-    background-size: auto 100%;
-    width: 280px;
-    aspect-ratio: 2 / 4;
-    background-blend-mode: multiply;
-    transition: 0.8s;
-    mask-image: url(../images/mockup.png);
-    mask-size: auto 100%;
-}
-.soda:nth-child(2){
-    opacity: 0;
-}
-.product:hover{
-    bottom: 300px;
-}
-.product:hover .soda:nth-child(2){
-    opacity: 1;
-    --left: 500px;
-}
-.product:hover .soda:nth-child(1){
-    opacity: 0;
-    --left: 500px;
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
-.banner:has(.product:hover){
-    transform: translateX(-50%) translateY(50px);
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
-.banner:has(.product:hover){
-    transform: translateX(-100px) translateY(100px);
-}
-.banner:has(.product:hover){
-    transform: translateX(100px) translateY(100px);
-}
-@media screen and (max-width: 1023px) {
 
-    .soda {
-        width: 50vh;
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Contact Section */
+.contact {
+    background: var(--primary-color);
+    color: white;
+}
+
+.contact h2 {
+    color: white;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Animations */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .nav-content,
+    .about-content,
+    .skills-grid,
+    .projects-grid {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
-}
-@media screen and (max-width: 767px) {
-
-    .soda { 
-        width: 50vh;
-      }
-    header img{
-        display: none;
+    .typing-text {
+        font-size: 1.3rem;
     }
-    header .author{
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav li {
+        margin: 0;
+    }
+
+    .hero {
+        padding: 0 1rem;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .typing-text {
+        font-size: 1.2rem;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-content {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .project-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .contact-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .project-image img {
+        height: 180px;
+    }
+
+    .project-info {
+        padding: 1rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add smooth transitions for responsive changes */
+.nav-content,
+.hero-content,
+.skills-grid,
+.projects-grid,
+.about-content,
+.contact-content {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Fix for mobile navigation */
+@media (max-width: 768px) {
+    .nav {
+        padding: 0.5rem 0;
+    }
+
+    .nav-content {
         width: 100%;
     }
 
+    /* Make navigation scrollable on very small screens */
+    .nav ul {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+    }
+
+    .nav ul::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Fix for landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        padding: 4rem 1rem;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Add support for dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1a1a1a;
+        --text-color: #ffffff;
+    }
+
+    .skill-category,
+    .project-card {
+        background: #2a2a2a;
+    }
+
+    .nav {
+        background: rgba(26, 26, 26, 0.95);
+    }
+
+    .contact-button {
+        background: #2a2a2a;
+        color: white;
+    }
 }

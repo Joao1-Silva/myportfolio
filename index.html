@@ -1,55 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Silva - Full Stack Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <title>Jonathan Silva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
-    <div class="wel">
-        <div class="child">
-            <img class="photo" src="/src/img/profilephoto.JPG">
-            <h1 class="title">Hi, Im Jonathan Silva</h1>
-            <p class="content">Full Stack Developer</p>
+    <nav class="nav glass">
+        <div class="nav-content">
+            <div class="logo">JS</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
-    <header>
-        <div class="parent">
-            <nav class="nav glass">
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img class="profile-photo" src="/src/img/profilephoto.JPG" alt="Jonathan Silva">
+            <h1>Hi, I'm Jonathan Silva</h1>
+            <p class="typing-text">Full Stack Developer</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.twitch.tv/shoaojs" target="_blank"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I'm a passionate Full Stack Developer with experience in building web applications from the ground up. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend</h3>
                 <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#about">Acerca de</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                    <li><i class="fab fa-html5"></i> HTML5</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                    <li><i class="fab fa-js"></i> JavaScript</li>
+                    <li><i class="fab fa-react"></i> React</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="build" alt="#">
-        <h1 class="btext">Building</h1>
-    </div>
-
-    <!-- <div class="banner">
-        <div class="product">
-            <div class="soda" style="--url: url(../images/bg.png)">
             </div>
-            <div class="soda" style="--url: url(../images/bg2.png)">
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <ul>
+                    <li><i class="fab fa-node"></i> Node.js</li>
+                    <li><i class="fas fa-database"></i> SQL</li>
+                    <li><i class="fab fa-python"></i> Python</li>
+                    <li><i class="fas fa-server"></i> REST APIs</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <ul>
+                    <li><i class="fab fa-git-alt"></i> Git</li>
+                    <li><i class="fab fa-docker"></i> Docker</li>
+                    <li><i class="fas fa-cloud"></i> AWS</li>
+                    <li><i class="fas fa-terminal"></i> Command Line</li>
+                </ul>
             </div>
         </div>
+    </section>
 
-    </div> -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="src/img/project1.jpg" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Description of your first project goes here.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="src/img/project2.jpg" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>Description of your second project goes here.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="social">
-        <article>
-            <a href="https://www.twitch.tv/shoaojs" target="_blank">
-                <img class="twichcard" src="src/img/twitchcard.webp">
-                <img class="card" src="src/img/card.jpg">
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to new opportunities and collaborations.</p>
+            <a href="mailto:your.email@example.com" class="contact-button">
+                <i class="fas fa-envelope"></i> Email Me
             </a>
-        </article>
-    </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jonathan Silva. All rights reserved.</p>
+    </footer>
+
+    <script src="src/js/main.js"></script>
 </body>
 </html>
