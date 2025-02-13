@@ -136,3 +136,37 @@ function handleSwipe() {
         }
     }
 }
+
+// Language switching functionality
+const langToggle = document.getElementById('langToggle');
+const currentLang = langToggle.querySelector('.current-lang');
+let isEnglish = true;
+
+function setLanguage(language) {
+    const elements = document.querySelectorAll('[data-en][data-es]');
+    elements.forEach(element => {
+        const text = language === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');
+        if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
+            element.placeholder = text;
+        } else {
+            element.textContent = text;
+        }
+    });
+    currentLang.textContent = language.toUpperCase();
+    isEnglish = language === 'en';
+    
+    // Save language preference
+    localStorage.setItem('preferred-language', language);
+}
+
+langToggle.addEventListener('click', () => {
+    setLanguage(isEnglish ? 'es' : 'en');
+});
+
+// Load saved language preference
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('preferred-language');
+    if (savedLanguage) {
+        setLanguage(savedLanguage);
+    }
+});
