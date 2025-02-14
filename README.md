@@ -6,3 +6,5 @@ Welcome this is my portfolio code, I use html css and javascript in this simple 
 
 You can contact me at: [email](mailto:jonathansivlads@hotmail.com)
 or [linkedin](https://www.linkedin.com/in/jonathansivlads/)
+
+Thank you for visiting my portfolio.
