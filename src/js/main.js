@@ -1,172 +1,127 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+const introScreen = document.getElementById("introScreen");
+const skipIntroButton = document.getElementById("skipIntro");
+const langToggle = document.getElementById("langToggle");
+const currentLangLabel = document.querySelector(".current-lang");
+const translatableElements = document.querySelectorAll("[data-en][data-es]");
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("section[id]");
+const revealElements = document.querySelectorAll(".reveal");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let currentLanguage = localStorage.getItem("preferred-language") || "es";
+let introDismissed = false;
+
+const setLanguage = (language) => {
+    translatableElements.forEach((element) => {
+        element.textContent = element.dataset[language];
+    });
+
+    document.documentElement.lang = language;
+    currentLangLabel.textContent = language.toUpperCase();
+    currentLanguage = language;
+    localStorage.setItem("preferred-language", language);
+};
+
+const dismissIntro = () => {
+    if (introDismissed) {
+        return;
+    }
+
+    introDismissed = true;
+    document.body.classList.remove("is-loading");
+    introScreen.classList.add("is-hidden");
+    introScreen.setAttribute("aria-hidden", "true");
+};
+
+const scheduleIntroDismiss = () => {
+    const duration = reduceMotion ? 450 : 2600;
+    window.setTimeout(dismissIntro, duration);
+};
+
+const updateActiveLink = () => {
+    let activeSectionId = sections[0]?.id || "";
+    const viewportAnchor = window.scrollY + 180;
+
+    sections.forEach((section) => {
+        if (viewportAnchor >= section.offsetTop) {
+            activeSectionId = section.id;
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${activeSectionId}`);
+    });
+};
+
+const observeReveals = () => {
+    if (reduceMotion) {
+        revealElements.forEach((element) => element.classList.add("is-visible"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.16,
+            rootMargin: "0px 0px -30px 0px"
+        }
+    );
+
+    revealElements.forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
+        observer.observe(element);
+    });
+};
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+        const targetId = anchor.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+        target.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "start"
         });
     });
 });
 
-// Add active class to navigation links based on scroll position
-const addActiveClass = () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav a');
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 60) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
-        }
-    });
-};
-
-// Throttle function to limit scroll event firing
-const throttle = (func, limit) => {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-};
-
-// Add throttled scroll event listener
-window.addEventListener('scroll', throttle(addActiveClass, 100));
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    root: null,
-    threshold: 0.1,
-    rootMargin: "0px"
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all sections for fade-in animation
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
+langToggle.addEventListener("click", () => {
+    setLanguage(currentLanguage === "es" ? "en" : "es");
 });
 
-// Handle mobile navigation
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('.nav');
-    let lastScrollTop = 0;
+skipIntroButton.addEventListener("click", dismissIntro);
 
-    // Hide/show navigation on scroll
-    window.addEventListener('scroll', throttle(() => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > nav.offsetHeight) {
-            // Scrolling down
-            nav.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            nav.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    }, 100));
-
-    // Close navigation on link click (mobile)
-    document.querySelectorAll('.nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                nav.style.transform = 'translateY(-100%)';
-                setTimeout(() => {
-                    nav.style.transform = 'translateY(0)';
-                }, 1000);
-            }
-        });
-    });
-});
-
-// Add resize handler for responsive adjustments
-window.addEventListener('resize', throttle(() => {
-    // Reset any mobile-specific styles when returning to desktop
-    if (window.innerWidth > 768) {
-        document.querySelector('.nav').style.transform = 'translateY(0)';
-    }
-}, 100));
-
-// Add touch support for mobile devices
-let touchstartX = 0;
-let touchendX = 0;
-
-document.addEventListener('touchstart', e => {
-    touchstartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-    touchendX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const nav = document.querySelector('.nav');
-    const swipeDistance = Math.abs(touchendX - touchstartX);
-    
-    if (swipeDistance > 50) { // Minimum swipe distance
-        if (touchendX < touchstartX) {
-            // Swipe left - hide nav
-            nav.style.transform = 'translateY(-100%)';
-        } else {
-            // Swipe right - show nav
-            nav.style.transform = 'translateY(0)';
-        }
-    }
-}
-
-// Language switching functionality
-const langToggle = document.getElementById('langToggle');
-const currentLang = langToggle.querySelector('.current-lang');
-let isEnglish = true;
-
-function setLanguage(language) {
-    const elements = document.querySelectorAll('[data-en][data-es]');
-    elements.forEach(element => {
-        const text = language === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');
-        if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
-            element.placeholder = text;
-        } else {
-            element.textContent = text;
-        }
-    });
-    currentLang.textContent = language.toUpperCase();
-    isEnglish = language === 'en';
-    
-    // Save language preference
-    localStorage.setItem('preferred-language', language);
-}
-
-langToggle.addEventListener('click', () => {
-    setLanguage(isEnglish ? 'es' : 'en');
-});
-
-// Load saved language preference
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLanguage = localStorage.getItem('preferred-language');
-    if (savedLanguage) {
-        setLanguage(savedLanguage);
+window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        dismissIntro();
     }
 });
+
+window.addEventListener("scroll", updateActiveLink, { passive: true });
+window.addEventListener("resize", updateActiveLink);
+
+window.addEventListener(
+    "load",
+    () => {
+        scheduleIntroDismiss();
+        updateActiveLink();
+        observeReveals();
+    },
+    { once: true }
+);
+
+document.getElementById("currentYear").textContent = String(new Date().getFullYear());
+setLanguage(currentLanguage);
+updateActiveLink();

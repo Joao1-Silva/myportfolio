@@ -1,129 +1,621 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Silva - Full Stack Developer</title>
-    <link rel="shortcut icon" href="/src/img/favicon.ico" />
+    <meta
+        name="description"
+        content="Portfolio, carta de presentación y estudio personal de software de Jonathan Silva. Desarrollo web, productos digitales y soluciones a medida."
+    >
+    <title>Jonathan Silva | Portfolio y Estudio Personal de Software</title>
+    <link rel="shortcut icon" href="src/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/css/styles.css">
+    <noscript>
+        <style>
+            body {
+                overflow: auto;
+            }
+
+            .intro-screen {
+                display: none;
+            }
+        </style>
+    </noscript>
 </head>
-<body>
-    <nav class="nav glass">
-        <div class="nav-content">
-            <div class="logo pixel-border">JS</div>
-            <ul>
-                <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
-                <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
-                <li><a href="#skills" data-en="Skills" data-es="Habilidades">Skills</a></li>
-                <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
-                <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-            </ul>
-            <button id="langToggle" class="lang-toggle pixel-border">
-                <span class="current-lang">EN</span>
-            </button>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img class="profile-photo" src="/src/img/profilephoto.JPG" alt="Jonathan Silva">
-            <h1 data-en="Welcome to My World" data-es="Bienvenido a Mi Mundo">Welcome to My World</h1>
-            <div class="intro-text">
-                <h2 data-en="I'm Jonathan Silva" data-es="Soy Jonathan Silva">I'm Jonathan Silva</h2>
-                <p class="typing-text" data-en="Full Stack Developer" data-es="Desarrollador Full Stack">Full Stack Developer</p>
-                <p class="subtitle" data-en="Turning Ideas into Digital Reality" data-es="Convirtiendo Ideas en Realidad Digital">Turning Ideas into Digital Reality</p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/Joao1-Silva" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/jonathanjoaosilva/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.twitch.tv/shoaojs" target="_blank"><i class="fab fa-twitch"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2 data-en="About Me" data-es="Sobre Mí">About Me</h2>
-        <div class="about-content">
-            <p data-en="Full Stack developer passionate about creating innovative and easy-to-use web solutions. Experienced in designing and developing complete web applications, I focus on digital products that combine functionality, aesthetics and exceptional user experience. I enjoy transforming complex challenges into intuitive experiences, am a creative problem solver and love collaborating in teams. Constantly learning, I explore new technologies to deliver cutting-edge solutions. My priority is to create memorable and accessible digital experiences for everyone, designing applications that solve real problems and improve people's lives." 
-               data-es="Desarrollador Full Stack apasionado por crear soluciones web innovadoras y fáciles de usar. Con experiencia en el diseño y desarrollo de aplicaciones web completas, me enfoco en productos digitales que combinan funcionalidad, estética y una experiencia de usuario excepcional. Disfruto transformando desafíos complejos en experiencias intuitivas, soy un solucionador de problemas creativo y me encanta colaborar en equipos. En constante aprendizaje, exploro nuevas tecnologías para ofrecer soluciones de vanguardia. Mi prioridad es crear experiencias digitales memorables y accesibles para todos, diseñando aplicaciones que resuelvan problemas reales y mejoren la vida de las personas.">
-               Full Stack developer passionate about creating innovative and easy-to-use web solutions. Experienced in designing and developing complete web applications, I focus on digital products that combine functionality, aesthetics and exceptional user experience. I enjoy transforming complex challenges into intuitive experiences, am a creative problem solver and love collaborating in teams. Constantly learning, I explore new technologies to deliver cutting-edge solutions. My priority is to create memorable and accessible digital experiences for everyone, designing applications that solve real problems and improve people's lives.
+<body class="is-loading">
+    <div class="intro-screen" id="introScreen" aria-hidden="false">
+        <button id="skipIntro" class="skip-intro" type="button" data-en="Skip intro" data-es="Saltar intro">Saltar intro</button>
+        <div class="intro-core">
+            <p class="intro-name" data-en="Jonathan Silva" data-es="Jonathan Silva">Jonathan Silva</p>
+            <h1 class="intro-title" data-en="Software with identity, strategy and execution." data-es="Software con identidad, estrategia y ejecución.">
+                Software con identidad, estrategia y ejecución.
+            </h1>
+            <p
+                class="intro-copy"
+                data-en="A portfolio, presentation letter and personal software studio wrapped into one experience."
+                data-es="Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia."
+            >
+                Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia.
             </p>
+            <div class="intro-progress" aria-hidden="true">
+                <span></span>
+            </div>
+            <p class="intro-status" data-en="Loading experience" data-es="Cargando experiencia">Cargando experiencia</p>
         </div>
-    </section>
+    </div>
 
-    <section id="skills" class="skills">
-        <h2 data-en="Skills" data-es="Habilidades">Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <ul>
-                    <li><i class="fab fa-html5"></i> HTML5</li>
-                    <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                    <li><i class="fab fa-js"></i> JavaScript</li>
-                    <li><i class="fab fa-react"></i> React</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Backend</h3>
-                <ul>
-                    <li><i class="fab fa-node"></i> Node.js</li>
-                    <li><i class="fas fa-database"></i> SQL</li>
-                    <li><i class="fab fa-php"></i> PHP</li>
-                    <li><i class="fas fa-server"></i> REST APIs</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Tools</h3>
-                <ul>
-                    <li><i class="fab fa-git-alt"></i> Git</li>
-                    <!-- <li><i class="fab fa-docker"></i> Docker</li> -->
-                    <!-- <li><i class="fas fa-cloud"></i> AWS</li> -->
-                    <li><i class="fas fa-terminal"></i> Command Line</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <div class="page-shell">
+        <nav class="nav">
+            <div class="container nav-inner">
+                <a class="brand" href="#home" aria-label="Jonathan Silva">
+                    <span class="brand-mark">JS</span>
+                    <span class="brand-copy">
+                        <span class="brand-title">Jonathan Silva</span>
+                        <span
+                            class="brand-caption"
+                            data-en="Portfolio + software studio"
+                            data-es="Portfolio + software studio"
+                        >
+                            Portfolio + software studio
+                        </span>
+                    </span>
+                </a>
 
-    <section id="projects" class="projects">
-        <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="src/img/vdolar.png" alt="vdolarjs Project">
+                <div class="nav-links" aria-label="Primary">
+                    <a class="nav-link" href="#home" data-en="Home" data-es="Inicio">Inicio</a>
+                    <a class="nav-link" href="#services" data-en="Services" data-es="Servicios">Servicios</a>
+                    <a class="nav-link" href="#products" data-en="Products" data-es="Productos">Productos</a>
+                    <!-- <a class="nav-link" href="#projects" data-en="Projects" data-es="Proyectos">Proyectos</a> -->
+                    <a class="nav-link" href="#about" data-en="About" data-es="Sobre mí">Sobre mí</a>
+                    <a class="nav-link" href="#contact" data-en="Contact" data-es="Contacto">Contacto</a>
                 </div>
-                <div class="project-info">
-                    <h3>vdolarjs</h3>
-                    <p data-en="A tool to know the estimated duration of your smartphone balance when using the internet."
-                       data-es="Una herramienta para saber la duracion estimada del saldo de tu smartphone al usar internet.">
-                            A tool to know the estimated duration of your smartphone balance when using the internet.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/Joao1-Silva/vdolarjs" target="_blank"><i class="fab fa-github"></i> <span data-en="Code" data-es="Código">Code</span></a>
-                        <a href="https://vdolarjs.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> <span data-en="Live" data-es="Ver">Live</span></a>
+
+                <div class="nav-actions">
+                    <a class="nav-cta" href="#contact" data-en="Start project" data-es="Empezar proyecto">Empezar proyecto</a>
+                    <button id="langToggle" class="lang-toggle" type="button" aria-label="Cambiar idioma">
+                        <span class="current-lang">ES</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <section id="home" class="section hero">
+                <div class="container hero-grid">
+                    <div class="hero-copy reveal">
+                        <p
+                            class="section-kicker"
+                            data-en="Portfolio · Presentation letter · Personal studio"
+                            data-es="Portfolio · Carta de presentación · Estudio personal"
+                        >
+                            Portfolio · Carta de presentación · Estudio personal
+                        </p>
+                        <h2
+                            class="hero-title"
+                            data-en="I build software that presents your brand, organizes your operation and turns ideas into real products."
+                            data-es="Construyo software que presenta tu marca, organiza tu operación y convierte ideas en productos reales."
+                        >
+                            Construyo software que presenta tu marca, organiza tu operación y convierte ideas en productos reales.
+                        </h2>
+                        <p
+                            class="hero-lead"
+                            data-en="I'm Jonathan Silva, a Full Stack Developer. This site does more than show what I do: it communicates how I think, how I build, and what kind of solutions I can create for clients, brands and teams."
+                            data-es="Soy Jonathan Silva, Full Stack Developer. Esta web no solo muestra lo que hago: transmite cómo pienso, cómo construyo y qué tipo de soluciones puedo crear para clientes, marcas y equipos."
+                        >
+                            Soy Jonathan Silva, Full Stack Developer. Esta web no solo muestra lo que hago: transmite cómo pienso, cómo construyo y qué tipo de soluciones puedo crear para clientes, marcas y equipos.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="#products" data-en="Explore base products" data-es="Ver productos base">Ver productos base</a>
+                            <!-- <a class="button button-secondary" href="#projects" data-en="See my work" data-es="Ver trabajo">Ver trabajo</a> -->
+                        </div>
+
+                        <div class="social-links" aria-label="Social links">
+                            <a class="social-link" href="https://github.com/Joao1-Silva" target="_blank" rel="noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a class="social-link" href="https://www.linkedin.com/in/jonathanjoaosilva/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="social-link" href="https://www.twitch.tv/shoaojs" target="_blank" rel="noreferrer" aria-label="Twitch">
+                                <i class="fab fa-twitch"></i>
+                            </a>
+                        </div>
+
+                        <div class="stat-grid">
+                            <article class="stat-card reveal">
+                                <strong data-en="Digital presence" data-es="Presencia digital">Presencia digital</strong>
+                                <p
+                                    data-en="Websites, portfolios and landing pages with commercial intent."
+                                    data-es="Webs, portfolios y landing pages con intención comercial."
+                                >
+                                    Webs, portfolios y landing pages con intención comercial.
+                                </p>
+                            </article>
+                            <article class="stat-card reveal">
+                                <strong data-en="Useful systems" data-es="Sistemas útiles">Sistemas útiles</strong>
+                                <p
+                                    data-en="Dashboards, APIs and tools that bring clarity to operations."
+                                    data-es="Dashboards, APIs y herramientas que ordenan operaciones."
+                                >
+                                    Dashboards, APIs y herramientas que ordenan operaciones.
+                                </p>
+                            </article>
+                            <article class="stat-card reveal">
+                                <strong data-en="Minimum product" data-es="Producto mínimo">Producto mínimo</strong>
+                                <p
+                                    data-en="MVPs built to validate, iterate and grow."
+                                    data-es="MVPs pensados para validar, iterar y crecer."
+                                >
+                                    MVPs pensados para validar, iterar y crecer.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual reveal">
+                        <div class="hero-stage">
+                            <article class="profile-panel">
+                                <span
+                                    class="availability-pill"
+                                    data-en="Open for freelance and collaborations"
+                                    data-es="Disponible para freelance y colaboraciones"
+                                >
+                                    Disponible para freelance y colaboraciones
+                                </span>
+                                <div class="portrait-frame">
+                                    <img src="src/img/profilephoto.JPG" alt="Jonathan Silva" decoding="async">
+                                </div>
+                                <h3 class="profile-title">Jonathan Silva</h3>
+                                <p class="profile-role" data-en="Full Stack Developer" data-es="Full Stack Developer">Full Stack Developer</p>
+                                <p
+                                    class="profile-copy"
+                                    data-en="Frontend design, backend logic and delivery with product thinking."
+                                    data-es="Diseño frontend, lógica backend y entrega con enfoque de producto."
+                                >
+                                    Diseño frontend, lógica backend y entrega con enfoque de producto.
+                                </p>
+                            </article>
+
+                            <article class="stack-card">
+                                <h3 data-en="Key capabilities" data-es="Capacidades clave">Capacidades clave</h3>
+                                <div class="stack-list">
+                                    <span class="stack-pill">Frontend</span>
+                                    <span class="stack-pill">Backend</span>
+                                    <span class="stack-pill">APIs</span>
+                                    <span class="stack-pill">UX</span>
+                                    <span class="stack-pill" data-en="Automation" data-es="Automatización">Automatización</span>
+                                </div>
+                            </article>
+
+                            <article class="note-card">
+                                <h3 data-en="Execution line" data-es="Línea de ejecución">Línea de ejecución</h3>
+                                <p
+                                    data-en="Idea, structure, interface, logic and final delivery connected in one workflow."
+                                    data-es="Idea, estructura, interfaz, lógica y entrega final conectadas en un mismo flujo."
+                                >
+                                    Idea, estructura, interfaz, lógica y entrega final conectadas en un mismo flujo.
+                                </p>
+                            </article>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <section id="services" class="section">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker" data-en="Services" data-es="Servicios">Servicios</p>
+                        <h2 class="section-title" data-en="What you can hire here" data-es="Lo que puedes contratar aquí">
+                            Lo que puedes contratar aquí
+                        </h2>
+                        <p
+                            class="section-copy"
+                            data-en="I work as a developer and technical partner, focused on digital products that work and web experiences that sell your value more clearly."
+                            data-es="Trabajo como desarrollador y partner técnico, con foco en productos digitales funcionales y experiencias web que venden mejor tu valor."
+                        >
+                            Trabajo como desarrollador y partner técnico, con foco en productos digitales funcionales y experiencias web que venden mejor tu valor.
+                        </p>
+                    </div>
+
+                    <div class="services-grid">
+                        <article class="service-card reveal">
+                            <span class="service-index">01</span>
+                            <h3 data-en="Landing pages and digital presence" data-es="Landing pages y presencia digital">
+                                Landing pages y presencia digital
+                            </h3>
+                            <p
+                                data-en="Design and development for websites that present your brand better, capture attention and turn visits into conversations."
+                                data-es="Diseño y desarrollo de sitios que presentan mejor tu marca, capturan atención y convierten visitas en conversaciones."
+                            >
+                                Diseño y desarrollo de sitios que presentan mejor tu marca, capturan atención y convierten visitas en conversaciones.
+                            </p>
+                            <ul class="service-list">
+                                <li data-en="Visual direction with identity" data-es="Dirección visual con identidad">Dirección visual con identidad</li>
+                                <li data-en="Responsive build with strong performance" data-es="Responsive y rendimiento cuidado">Responsive y rendimiento cuidado</li>
+                                <li data-en="Sections built for conversion" data-es="Secciones orientadas a conversión">Secciones orientadas a conversión</li>
+                            </ul>
+                        </article>
+
+                        <article class="service-card reveal">
+                            <span class="service-index">02</span>
+                            <h3 data-en="Internal tools and dashboards" data-es="Herramientas internas y dashboards">
+                                Herramientas internas y dashboards
+                            </h3>
+                            <p
+                                data-en="Panels, flows and business logic that simplify the way your team works with data, tasks and users."
+                                data-es="Paneles, flujos y lógica de negocio que simplifican cómo tu equipo trabaja con datos, tareas y usuarios."
+                            >
+                                Paneles, flujos y lógica de negocio que simplifican cómo tu equipo trabaja con datos, tareas y usuarios.
+                            </p>
+                            <ul class="service-list">
+                                <li data-en="Dashboards and CRUD foundations" data-es="Paneles y bases CRUD">Paneles y bases CRUD</li>
+                                <li data-en="API integrations" data-es="Integración con APIs">Integración con APIs</li>
+                                <li data-en="Clearer operational workflows" data-es="Flujos operativos más claros">Flujos operativos más claros</li>
+                            </ul>
+                        </article>
+
+                        <article class="service-card reveal">
+                            <span class="service-index">03</span>
+                            <h3 data-en="MVPs and custom software" data-es="MVPs y software a medida">MVPs y software a medida</h3>
+                            <p
+                                data-en="A direct path from concept to functional version for validating an idea, launching a service or digitalizing a process."
+                                data-es="Un camino directo de concepto a versión funcional para validar una idea, lanzar un servicio o digitalizar un proceso."
+                            >
+                                Un camino directo de concepto a versión funcional para validar una idea, lanzar un servicio o digitalizar un proceso.
+                            </p>
+                            <ul class="service-list">
+                                <li data-en="Clear starting architecture" data-es="Arquitectura inicial clara">Arquitectura inicial clara</li>
+                                <li data-en="Phase-based iterations" data-es="Iteración por fases">Iteración por fases</li>
+                                <li data-en="Ready to scale with your goal" data-es="Escalable según tu objetivo">Escalable según tu objetivo</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="products" class="section products-section">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker" data-en="Base products" data-es="Productos base">Productos base</p>
+                        <h2 class="section-title" data-en="Packages ready to adapt" data-es="Paquetes listos para adaptar">
+                            Paquetes listos para adaptar
+                        </h2>
+                        <p
+                            class="section-copy"
+                            data-en="Not every project should start from scratch. These base products help accelerate time, scope and budget."
+                            data-es="No todo proyecto debe empezar desde cero. Estos productos base ayudan a acelerar tiempo, alcance y presupuesto."
+                        >
+                            No todo proyecto debe empezar desde cero. Estos productos base ayudan a acelerar tiempo, alcance y presupuesto.
+                        </p>
+                    </div>
+
+                    <div class="products-grid">
+                        <article class="product-card reveal">
+                            <span class="product-tag">Base 01</span>
+                            <h3>Launch Page</h3>
+                            <p
+                                class="product-subtitle"
+                                data-en="A landing page ready to attract clients"
+                                data-es="Una landing lista para captar clientes"
+                            >
+                                Una landing lista para captar clientes
+                            </p>
+                            <p
+                                class="product-copy"
+                                data-en="A polished presentation page for a personal brand, service or digital product."
+                                data-es="Una página de presentación sólida para una marca personal, un servicio o un producto digital."
+                            >
+                                Una página de presentación sólida para una marca personal, un servicio o un producto digital.
+                            </p>
+                            <ul class="product-features">
+                                <li data-en="Hero with a clear offer" data-es="Hero con propuesta clara">Hero con propuesta clara</li>
+                                <li data-en="Social proof and CTA sections" data-es="Secciones de prueba social y CTA">Secciones de prueba social y CTA</li>
+                                <li data-en="Design adapted to your identity" data-es="Diseño adaptable a tu identidad">Diseño adaptable a tu identidad</li>
+                            </ul>
+                            <a class="product-link" href="#contact" data-en="I want this product" data-es="Quiero este producto">Quiero este producto</a>
+                        </article>
+
+                        <article class="product-card reveal">
+                            <span class="product-tag">Base 02</span>
+                            <h3>Business Dashboard Starter</h3>
+                            <p
+                                class="product-subtitle"
+                                data-en="An operational panel for your workflow"
+                                data-es="Un panel operativo para tu flujo"
+                            >
+                                Un panel operativo para tu flujo
+                            </p>
+                            <p
+                                class="product-copy"
+                                data-en="A functional base to manage data, inspect metrics and organize internal work."
+                                data-es="Una base funcional para administrar datos, visualizar métricas y ordenar trabajo interno."
+                            >
+                                Una base funcional para administrar datos, visualizar métricas y ordenar trabajo interno.
+                            </p>
+                            <ul class="product-features">
+                                <li data-en="Authentication and base structure" data-es="Autenticación y estructura base">Autenticación y estructura base</li>
+                                <li data-en="Dashboard views and tables" data-es="Vistas de panel y tablas">Vistas de panel y tablas</li>
+                                <li data-en="Prepared for integrations" data-es="Preparado para integraciones">Preparado para integraciones</li>
+                            </ul>
+                            <a class="product-link" href="#contact" data-en="Let's adapt it" data-es="Quiero adaptarlo">Quiero adaptarlo</a>
+                        </article>
+
+                        <article class="product-card reveal">
+                            <span class="product-tag">Base 03</span>
+                            <h3>MVP Sprint</h3>
+                            <p
+                                class="product-subtitle"
+                                data-en="A minimum product to validate an idea"
+                                data-es="Un producto mínimo para validar una idea"
+                            >
+                                Un producto mínimo para validar una idea
+                            </p>
+                            <p
+                                class="product-copy"
+                                data-en="The most direct way to take an idea to a usable first version with real test potential."
+                                data-es="La vía más directa para llevar una idea a una primera versión usable con capacidad de prueba real."
+                            >
+                                La vía más directa para llevar una idea a una primera versión usable con capacidad de prueba real.
+                            </p>
+                            <ul class="product-features">
+                                <li data-en="Functional map for the MVP" data-es="Mapa funcional del MVP">Mapa funcional del MVP</li>
+                                <li data-en="Usable first interface" data-es="Interfaz inicial usable">Interfaz inicial usable</li>
+                                <li data-en="Foundation ready to grow" data-es="Base lista para crecer">Base lista para crecer</li>
+                            </ul>
+                            <a class="product-link" href="#contact" data-en="Build my MVP" data-es="Construir mi MVP">Construir mi MVP</a>
+                        </article>
+                    </div>
+
+                    <p
+                        class="products-note reveal"
+                        data-en="Each base product can scale into a fully custom solution."
+                        data-es="Cada producto base puede escalar hasta una solución completamente personalizada."
+                    >
+                        Cada producto base puede escalar hasta una solución completamente personalizada.
+                    </p>
+                </div>
+            </section>
+
+            <!--
+            <section id="projects" class="section">
+                <div class="container">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker" data-en="Selected work" data-es="Trabajo seleccionado">Trabajo seleccionado</p>
+                        <h2 class="section-title" data-en="Signals of real execution" data-es="Señales de ejecución real">
+                            Señales de ejecución real
+                        </h2>
+                        <p
+                            class="section-copy"
+                            data-en="Here you can see both what I have already built and the standard I want to bring to the next project."
+                            data-es="Aquí se ve tanto lo que ya construí como el estándar con el que quiero construir lo siguiente."
+                        >
+                            Aquí se ve tanto lo que ya construí como el estándar con el que quiero construir lo siguiente.
+                        </p>
+                    </div>
+
+                    <div class="work-grid">
+                        <article class="project-card project-card-featured reveal">
+                            <div class="project-media">
+                                <img src="src/img/vdolar.png" alt="vdolarjs preview" loading="lazy" decoding="async">
+                            </div>
+                            <div class="project-content">
+                                <span class="project-type" data-en="Published project" data-es="Proyecto publicado">Proyecto publicado</span>
+                                <h3 class="project-title">vdolarjs</h3>
+                                <p
+                                    class="project-copy"
+                                    data-en="A web tool designed to estimate how far a user's mobile balance can go based on digital consumption. A simple, useful product built around a concrete need."
+                                    data-es="Herramienta web pensada para estimar cuánto puede rendir el saldo móvil de un usuario según su consumo digital. Un producto simple, útil y orientado a una necesidad concreta."
+                                >
+                                    Herramienta web pensada para estimar cuánto puede rendir el saldo móvil de un usuario según su consumo digital. Un producto simple, útil y orientado a una necesidad concreta.
+                                </p>
+                                <div class="project-tags">
+                                    <span>JavaScript</span>
+                                    <span data-en="Practical UI" data-es="UI práctica">UI práctica</span>
+                                    <span data-en="Useful product" data-es="Producto útil">Producto útil</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Joao1-Silva/vdolarjs" target="_blank" rel="noreferrer">
+                                        <i class="fab fa-github"></i>
+                                        <span data-en="View code" data-es="Ver código">Ver código</span>
+                                    </a>
+                                    <a href="https://vdolarjs.vercel.app/" target="_blank" rel="noreferrer">
+                                        <i class="fas fa-arrow-up-right-from-square"></i>
+                                        <span data-en="Live preview" data-es="Ver online">Ver online</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="side-stack">
+                            <article class="info-card reveal">
+                                <h3 data-en="Your next case study" data-es="Tu próximo caso de estudio">Tu próximo caso de estudio</h3>
+                                <p
+                                    data-en="This space is reserved for the next product, dashboard or web experience we build together."
+                                    data-es="Este espacio está reservado para el próximo producto, dashboard o experiencia web que construyamos juntos."
+                                >
+                                    Este espacio está reservado para el próximo producto, dashboard o experiencia web que construyamos juntos.
+                                </p>
+                                <a class="inline-link" href="#contact" data-en="Start the conversation" data-es="Iniciar conversación">
+                                    Iniciar conversación
+                                </a>
+                            </article>
+
+                            <article class="info-card info-card-dark reveal">
+                                <h3 data-en="Clear process" data-es="Proceso claro">Proceso claro</h3>
+                                <p
+                                    data-en="Every project starts from a simple logic: understand the goal, design the right structure and build a solution that can be presented with confidence."
+                                    data-es="Cada proyecto parte de una lógica simple: entender el objetivo, diseñar la estructura correcta y construir una solución que pueda presentarse con seguridad."
+                                >
+                                    Cada proyecto parte de una lógica simple: entender el objetivo, diseñar la estructura correcta y construir una solución que pueda presentarse con seguridad.
+                                </p>
+                                <ul class="process-list">
+                                    <li><span>01</span><span data-en="Goal" data-es="Objetivo">Objetivo</span></li>
+                                    <li><span>02</span><span data-en="Structure" data-es="Estructura">Estructura</span></li>
+                                    <li><span>03</span><span data-en="Build" data-es="Desarrollo">Desarrollo</span></li>
+                                    <li><span>04</span><span data-en="Delivery" data-es="Entrega">Entrega</span></li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            -->
+
+            <section id="about" class="section">
+                <div class="container about-grid">
+                    <div class="section-heading reveal">
+                        <p class="section-kicker" data-en="About" data-es="Sobre mí">Sobre mí</p>
+                        <h2
+                            class="section-title"
+                            data-en="A full stack developer with a product mindset"
+                            data-es="Un desarrollador full stack con mentalidad de producto"
+                        >
+                            Un desarrollador full stack con mentalidad de producto
+                        </h2>
+                        <p
+                            class="section-copy"
+                            data-en="I care about websites that do more than look good, they should communicate with intent. I care about systems that do more than work, they should genuinely help. That is why I combine design, frontend, backend and product criteria to build experiences that feel thoughtful and useful."
+                            data-es="Me interesan las webs que hacen más que verse bien: deben comunicar con intención. Me interesan los sistemas que hacen más que funcionar: deben ayudar de verdad. Por eso mezclo diseño, frontend, backend y criterio de producto para construir experiencias que se sientan cuidadas y útiles."
+                        >
+                            Me interesan las webs que hacen más que verse bien: deben comunicar con intención. Me interesan los sistemas que hacen más que funcionar: deben ayudar de verdad. Por eso mezclo diseño, frontend, backend y criterio de producto para construir experiencias que se sientan cuidadas y útiles.
+                        </p>
+                        <div class="stack-cloud">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>PHP</span>
+                            <span>SQL</span>
+                            <span>Git</span>
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="capability-grid">
+                        <article class="capability-card reveal">
+                            <i class="fas fa-pen-ruler"></i>
+                            <h3 data-en="Design with direction" data-es="Diseño con dirección">Diseño con dirección</h3>
+                            <p
+                                data-en="Interfaces that support the message, not just decorate it."
+                                data-es="Interfaces que sostienen el mensaje, no solo lo decoran."
+                            >
+                                Interfaces que sostienen el mensaje, no solo lo decoran.
+                            </p>
+                        </article>
+
+                        <article class="capability-card reveal">
+                            <i class="fas fa-code"></i>
+                            <h3 data-en="Functional code" data-es="Código funcional">Código funcional</h3>
+                            <p
+                                data-en="Solid frontend and backend foundations for real use, not just visual demos."
+                                data-es="Base sólida en frontend y backend para uso real, no solo para demos visuales."
+                            >
+                                Base sólida en frontend y backend para uso real, no solo para demos visuales.
+                            </p>
+                        </article>
+
+                        <article class="capability-card reveal">
+                            <i class="fas fa-cubes-stacked"></i>
+                            <h3 data-en="Product vision" data-es="Visión de producto">Visión de producto</h3>
+                            <p
+                                data-en="I think in terms of structure, usability and growth path."
+                                data-es="Pienso en estructura, usabilidad y camino de crecimiento."
+                            >
+                                Pienso en estructura, usabilidad y camino de crecimiento.
+                            </p>
+                        </article>
+
+                        <article class="capability-card reveal">
+                            <i class="fas fa-rocket"></i>
+                            <h3 data-en="Adaptable delivery" data-es="Entrega adaptable">Entrega adaptable</h3>
+                            <p
+                                data-en="From a simple landing page to a custom internal tool, with a delivery pace that matches the objective."
+                                data-es="Desde una landing simple hasta una herramienta interna a medida, con un ritmo de entrega que acompaña el objetivo."
+                            >
+                                Desde una landing simple hasta una herramienta interna a medida, con un ritmo de entrega que acompaña el objetivo.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <div class="container">
+                    <div class="contact-panel reveal">
+                        <div class="contact-copy">
+                            <p class="section-kicker" data-en="Contact" data-es="Contacto">Contacto</p>
+                            <h2
+                                class="section-title"
+                                data-en="If you want a website that sells better or software that solves better, this is where we start."
+                                data-es="Si quieres una web que venda mejor o un software que resuelva mejor, aquí empezamos."
+                            >
+                                Si quieres una web que venda mejor o un software que resuelva mejor, aquí empezamos.
+                            </h2>
+                            <p
+                                class="section-copy"
+                                data-en="Available for collaborations, freelance work and tailored digital products."
+                                data-es="Disponible para colaboraciones, proyectos freelance y productos digitales a medida."
+                            >
+                                Disponible para colaboraciones, proyectos freelance y productos digitales a medida.
+                            </p>
+                            <div class="contact-actions">
+                                <a class="contact-button" href="mailto:jonathansivlads@hotmail.com">
+                                    <i class="fas fa-envelope"></i>
+                                    <span data-en="Email me" data-es="Escribirme por email">Escribirme por email</span>
+                                </a>
+                                <a class="contact-button contact-button-ghost" href="https://www.linkedin.com/in/jonathanjoaosilva/" target="_blank" rel="noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a class="contact-button contact-button-ghost" href="https://github.com/Joao1-Silva" target="_blank" rel="noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <aside class="contact-aside">
+                            <p class="aside-label" data-en="Availability" data-es="Disponibilidad">Disponibilidad</p>
+                            <p
+                                class="aside-value"
+                                data-en="Remote · freelance · collaborations"
+                                data-es="Remoto · freelance · colaboraciones"
+                            >
+                                Remoto · freelance · colaboraciones
+                            </p>
+                            <p
+                                class="aside-text"
+                                data-en="This site is meant to make the next conversation easier: what I do, how I do it and where we can start."
+                                data-es="Esta web está pensada para facilitar la próxima conversación: qué hago, cómo lo hago y por dónde podemos empezar."
+                            >
+                                Esta web está pensada para facilitar la próxima conversación: qué hago, cómo lo hago y por dónde podemos empezar.
+                            </p>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="footer-copy">
+                    <span class="footer-year">© <span id="currentYear"></span></span>
+                    <span data-en="Jonathan Silva. Software with a personal signature." data-es="Jonathan Silva. Software con firma personal.">
+                        Jonathan Silva. Software con firma personal.
+                    </span>
+                </p>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2 data-en="Get In Touch" data-es="Contáctame">Get In Touch</h2>
-        <div class="contact-content">
-            <p data-en="I'm always open to new opportunities and collaborations." data-es="Estoy siempre abierto a nuevas oportunidades y colaboraciones.">I'm always open to new opportunities and collaborations.</p>
-            <a href="mailto:jonathansivlads@hotmail.com" class="contact-button">
-                <i class="fas fa-envelope"></i> <span data-en="Email Me" data-es="Envíame un correo">Email Me</span>
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Jonathan Silva. All rights reserved.</p>
-    </footer>
+        </footer>
+    </div>
 
     <script src="src/js/main.js"></script>
 </body>
