@@ -4,5 +4,13 @@
   "version": "1.0.0",
   "engines": {
     "node": "24.x"
+  },
+  "scripts": {
+    "validate": "npm run validate:html && npm run validate:js",
+    "validate:html": "html-validate index.html",
+    "validate:js": "node --check src/js/main.js"
+  },
+  "devDependencies": {
+    "html-validate": "^11.17.0"
   }
 }

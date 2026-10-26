@@ -7,8 +7,22 @@
         name="description"
         content="Portfolio, carta de presentación y estudio personal de software de Jonathan Silva. Desarrollo web, productos digitales y soluciones a medida."
     >
+    <meta name="author" content="Jonathan Silva">
+    <meta name="theme-color" content="#0d1726">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="Jonathan Silva | Full Stack Developer">
+    <meta property="og:description" content="Desarrollo web, productos digitales y software a medida con enfoque de producto.">
+    <meta property="og:url" content="https://jonathansilva.vercel.app/">
+    <meta property="og:image" content="https://jonathansilva.vercel.app/src/img/profilephoto.JPG">
+    <meta property="og:image:alt" content="Jonathan Silva, Full Stack Developer">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jonathan Silva | Full Stack Developer">
+    <meta name="twitter:description" content="Desarrollo web, productos digitales y software a medida con enfoque de producto.">
+    <meta name="twitter:image" content="https://jonathansilva.vercel.app/src/img/profilephoto.JPG">
+    <link rel="canonical" href="https://jonathansilva.vercel.app/">
     <title>Jonathan Silva | Portfolio y Estudio Personal de Software</title>
-    <link rel="shortcut icon" href="src/img/favicon.ico">
+    <link rel="icon" href="src/img/favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,6 +31,21 @@
     >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/css/styles.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Jonathan Silva",
+            "url": "https://jonathansilva.vercel.app/",
+            "image": "https://jonathansilva.vercel.app/src/img/profilephoto.JPG",
+            "jobTitle": "Full Stack Developer",
+            "sameAs": [
+                "https://github.com/Joao1-Silva",
+                "https://www.linkedin.com/in/jonathanjoaosilva/"
+            ],
+            "knowsAbout": ["Frontend", "Backend", "APIs", "UX", "Automation"]
+        }
+    </script>
     <noscript>
         <style>
             body {
@@ -29,30 +58,50 @@
         </style>
     </noscript>
 </head>
-<body class="is-loading">
-    <div class="intro-screen" id="introScreen" aria-hidden="false">
+<body>
+    <a class="skip-link" href="#mainContent" data-en="Skip to content" data-es="Saltar al contenido">Saltar al contenido</a>
+
+    <div class="intro-screen" id="introScreen">
         <button id="skipIntro" class="skip-intro" type="button" data-en="Skip intro" data-es="Saltar intro">Saltar intro</button>
         <div class="intro-core">
-            <p class="intro-name" data-en="Jonathan Silva" data-es="Jonathan Silva">Jonathan Silva</p>
-            <h1 class="intro-title" data-en="Software with identity, strategy and execution." data-es="Software con identidad, estrategia y ejecución.">
-                Software con identidad, estrategia y ejecución.
-            </h1>
-            <p
-                class="intro-copy"
-                data-en="A portfolio, presentation letter and personal software studio wrapped into one experience."
-                data-es="Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia."
-            >
-                Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia.
-            </p>
-            <div class="intro-progress" aria-hidden="true">
-                <span></span>
+            <div class="intro-content">
+                <p class="intro-name" data-en="Jonathan Silva" data-es="Jonathan Silva">Jonathan Silva</p>
+                <p class="intro-title" data-en="Software with identity, strategy and execution." data-es="Software con identidad, estrategia y ejecución.">
+                    Software con identidad, estrategia y ejecución.
+                </p>
+                <p
+                    class="intro-copy"
+                    data-en="A portfolio, presentation letter and personal software studio wrapped into one experience."
+                    data-es="Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia."
+                >
+                    Un portfolio, una carta de presentación y un estudio personal de software reunidos en una sola experiencia.
+                </p>
+                <div class="intro-progress" aria-hidden="true">
+                    <span></span>
+                </div>
+                <p class="intro-status" data-en="Loading experience" data-es="Cargando experiencia">Cargando experiencia</p>
             </div>
-            <p class="intro-status" data-en="Loading experience" data-es="Cargando experiencia">Cargando experiencia</p>
+
+            <div class="intro-visual" aria-hidden="true">
+                <div class="intro-orbit intro-orbit-one"></div>
+                <div class="intro-orbit intro-orbit-two"></div>
+                <div class="intro-cube">
+                    <span class="cube-face cube-front">JS</span>
+                    <span class="cube-face cube-back">JS</span>
+                    <span class="cube-face cube-right">&lt;/&gt;</span>
+                    <span class="cube-face cube-left">01</span>
+                    <span class="cube-face cube-top">UX</span>
+                    <span class="cube-face cube-bottom">API</span>
+                </div>
+                <span class="intro-chip intro-chip-one">Frontend</span>
+                <span class="intro-chip intro-chip-two">Backend</span>
+                <span class="intro-chip intro-chip-three">Product</span>
+            </div>
         </div>
     </div>
 
     <div class="page-shell">
-        <nav class="nav">
+        <nav class="nav" data-aria-en="Primary navigation" data-aria-es="Navegación principal" aria-label="Navegación principal">
             <div class="container nav-inner">
                 <a class="brand" href="#home" aria-label="Jonathan Silva">
                     <span class="brand-mark">JS</span>
@@ -68,25 +117,45 @@
                     </span>
                 </a>
 
-                <div class="nav-links" aria-label="Primary">
+                <div class="nav-links" id="primaryNavigation">
                     <a class="nav-link" href="#home" data-en="Home" data-es="Inicio">Inicio</a>
                     <a class="nav-link" href="#services" data-en="Services" data-es="Servicios">Servicios</a>
                     <a class="nav-link" href="#products" data-en="Products" data-es="Productos">Productos</a>
-                    <!-- <a class="nav-link" href="#projects" data-en="Projects" data-es="Proyectos">Proyectos</a> -->
+                    <a class="nav-link" href="#projects" data-en="Projects" data-es="Proyectos">Proyectos</a>
                     <a class="nav-link" href="#about" data-en="About" data-es="Sobre mí">Sobre mí</a>
                     <a class="nav-link" href="#contact" data-en="Contact" data-es="Contacto">Contacto</a>
                 </div>
 
                 <div class="nav-actions">
                     <a class="nav-cta" href="#contact" data-en="Start project" data-es="Empezar proyecto">Empezar proyecto</a>
-                    <button id="langToggle" class="lang-toggle" type="button" aria-label="Cambiar idioma">
+                    <button
+                        id="langToggle"
+                        class="lang-toggle"
+                        type="button"
+                        aria-label="Cambiar idioma"
+                        data-aria-en="Change language"
+                        data-aria-es="Cambiar idioma"
+                    >
                         <span class="current-lang">ES</span>
+                    </button>
+                    <button
+                        id="navMenuToggle"
+                        class="nav-menu-toggle"
+                        type="button"
+                        aria-controls="primaryNavigation"
+                        aria-expanded="false"
+                        aria-label="Abrir menú"
+                        data-aria-en="Open menu"
+                        data-aria-es="Abrir menú"
+                    >
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
             </div>
         </nav>
 
-        <main>
+        <main id="mainContent">
             <section id="home" class="section hero">
                 <div class="container hero-grid">
                     <div class="hero-copy reveal">
@@ -97,13 +166,13 @@
                         >
                             Portfolio · Carta de presentación · Estudio personal
                         </p>
-                        <h2
+                        <h1
                             class="hero-title"
                             data-en="I build software that presents your brand, organizes your operation and turns ideas into real products."
                             data-es="Construyo software que presenta tu marca, organiza tu operación y convierte ideas en productos reales."
                         >
                             Construyo software que presenta tu marca, organiza tu operación y convierte ideas en productos reales.
-                        </h2>
+                        </h1>
                         <p
                             class="hero-lead"
                             data-en="I'm Jonathan Silva, a Full Stack Developer. This site does more than show what I do: it communicates how I think, how I build, and what kind of solutions I can create for clients, brands and teams."
@@ -114,10 +183,10 @@
 
                         <div class="hero-actions">
                             <a class="button button-primary" href="#products" data-en="Explore base products" data-es="Ver productos base">Ver productos base</a>
-                            <!-- <a class="button button-secondary" href="#projects" data-en="See my work" data-es="Ver trabajo">Ver trabajo</a> -->
+                            <a class="button button-secondary" href="#projects" data-en="See my work" data-es="Ver trabajo">Ver trabajo</a>
                         </div>
 
-                        <div class="social-links" aria-label="Social links">
+                        <div class="social-links" role="group" data-aria-en="Social links" data-aria-es="Redes sociales" aria-label="Redes sociales">
                             <a class="social-link" href="https://github.com/Joao1-Silva" target="_blank" rel="noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -168,7 +237,21 @@
                                     Disponible para freelance y colaboraciones
                                 </span>
                                 <div class="portrait-frame">
-                                    <img src="src/img/profilephoto.JPG" alt="Jonathan Silva" decoding="async">
+                                    <picture>
+                                        <source
+                                            type="image/webp"
+                                            srcset="src/img/profilephoto-480.webp 480w, src/img/profilephoto-900.webp 900w"
+                                            sizes="(max-width: 720px) calc(100vw - 3.7rem), 430px"
+                                        >
+                                        <img
+                                            src="src/img/profilephoto.JPG"
+                                            width="900"
+                                            height="1350"
+                                            alt="Jonathan Silva"
+                                            decoding="async"
+                                            fetchpriority="high"
+                                        >
+                                    </picture>
                                 </div>
                                 <h3 class="profile-title">Jonathan Silva</h3>
                                 <p class="profile-role" data-en="Full Stack Developer" data-es="Full Stack Developer">Full Stack Developer</p>
@@ -207,6 +290,13 @@
             </section>
 
             <section id="services" class="section">
+                <div class="section-scene scene-services" aria-hidden="true">
+                    <div class="scene-perspective">
+                        <span class="service-scene-card service-scene-card-one">&lt;/&gt;</span>
+                        <span class="service-scene-card service-scene-card-two">API</span>
+                        <span class="service-scene-card service-scene-card-three">UX</span>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="section-heading reveal">
                         <p class="section-kicker" data-en="Services" data-es="Servicios">Servicios</p>
@@ -279,6 +369,13 @@
             </section>
 
             <section id="products" class="section products-section">
+                <div class="section-scene scene-products" aria-hidden="true">
+                    <div class="scene-perspective product-scene-stack">
+                        <span class="product-scene-box product-scene-box-one">01</span>
+                        <span class="product-scene-box product-scene-box-two">02</span>
+                        <span class="product-scene-box product-scene-box-three">03</span>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="section-heading reveal">
                         <p class="section-kicker" data-en="Base products" data-es="Productos base">Productos base</p>
@@ -317,7 +414,7 @@
                                 <li data-en="Social proof and CTA sections" data-es="Secciones de prueba social y CTA">Secciones de prueba social y CTA</li>
                                 <li data-en="Design adapted to your identity" data-es="Diseño adaptable a tu identidad">Diseño adaptable a tu identidad</li>
                             </ul>
-                            <a class="product-link" href="#contact" data-en="I want this product" data-es="Quiero este producto">Quiero este producto</a>
+                            <a class="product-link" href="#contact" data-contact-type="launch" data-en="I want this product" data-es="Quiero este producto">Quiero este producto</a>
                         </article>
 
                         <article class="product-card reveal">
@@ -342,7 +439,7 @@
                                 <li data-en="Dashboard views and tables" data-es="Vistas de panel y tablas">Vistas de panel y tablas</li>
                                 <li data-en="Prepared for integrations" data-es="Preparado para integraciones">Preparado para integraciones</li>
                             </ul>
-                            <a class="product-link" href="#contact" data-en="Let's adapt it" data-es="Quiero adaptarlo">Quiero adaptarlo</a>
+                            <a class="product-link" href="#contact" data-contact-type="dashboard" data-en="Let's adapt it" data-es="Quiero adaptarlo">Quiero adaptarlo</a>
                         </article>
 
                         <article class="product-card reveal">
@@ -367,7 +464,7 @@
                                 <li data-en="Usable first interface" data-es="Interfaz inicial usable">Interfaz inicial usable</li>
                                 <li data-en="Foundation ready to grow" data-es="Base lista para crecer">Base lista para crecer</li>
                             </ul>
-                            <a class="product-link" href="#contact" data-en="Build my MVP" data-es="Construir mi MVP">Construir mi MVP</a>
+                            <a class="product-link" href="#contact" data-contact-type="mvp" data-en="Build my MVP" data-es="Construir mi MVP">Construir mi MVP</a>
                         </article>
                     </div>
 
@@ -381,92 +478,176 @@
                 </div>
             </section>
 
-            <!--
             <section id="projects" class="section">
+                <div class="section-scene scene-projects" aria-hidden="true">
+                    <div class="scene-perspective project-scene-terminal">
+                        <span class="terminal-dot"></span>
+                        <span class="terminal-line terminal-line-one"></span>
+                        <span class="terminal-line terminal-line-two"></span>
+                        <span class="terminal-line terminal-line-three"></span>
+                        <strong>{ }</strong>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="section-heading reveal">
                         <p class="section-kicker" data-en="Selected work" data-es="Trabajo seleccionado">Trabajo seleccionado</p>
-                        <h2 class="section-title" data-en="Signals of real execution" data-es="Señales de ejecución real">
-                            Señales de ejecución real
+                        <h2 class="section-title" data-en="Three products, three real challenges" data-es="Tres productos, tres retos reales">
+                            Tres productos, tres retos reales
                         </h2>
                         <p
                             class="section-copy"
-                            data-en="Here you can see both what I have already built and the standard I want to bring to the next project."
-                            data-es="Aquí se ve tanto lo que ya construí como el estándar con el que quiero construir lo siguiente."
+                            data-en="Web interfaces, interactive experiences and backend systems built around a concrete purpose."
+                            data-es="Interfaces web, experiencias interactivas y sistemas backend construidos alrededor de un propósito concreto."
                         >
-                            Aquí se ve tanto lo que ya construí como el estándar con el que quiero construir lo siguiente.
+                            Interfaces web, experiencias interactivas y sistemas backend construidos alrededor de un propósito concreto.
                         </p>
                     </div>
 
-                    <div class="work-grid">
-                        <article class="project-card project-card-featured reveal">
+                    <div class="projects-grid">
+                        <article class="project-card reveal">
                             <div class="project-media">
-                                <img src="src/img/vdolar.png" alt="vdolarjs preview" loading="lazy" decoding="async">
+                                <img
+                                    src="src/img/mathgame.webp"
+                                    alt="Pantalla principal de Mathgame 3D"
+                                    width="1200"
+                                    height="750"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
                             </div>
                             <div class="project-content">
-                                <span class="project-type" data-en="Published project" data-es="Proyecto publicado">Proyecto publicado</span>
+                                <span class="project-type" data-en="Interactive learning" data-es="Aprendizaje interactivo">Aprendizaje interactivo</span>
+                                <h3 class="project-title">Mathgame 3D</h3>
+                                <p
+                                    class="project-copy"
+                                    data-en="A 3D educational game for practicing multiplication tables through challenges, visual feedback and progress saved in the browser."
+                                    data-es="Juego educativo 3D para practicar las tablas de multiplicar mediante retos, feedback visual y progreso guardado en el navegador."
+                                >
+                                    Juego educativo 3D para practicar las tablas de multiplicar mediante retos, feedback visual y progreso guardado en el navegador.
+                                </p>
+                                <dl class="case-points">
+                                    <div>
+                                        <dt data-en="Challenge" data-es="Reto">Reto</dt>
+                                        <dd data-en="Turn repetition into an engaging learning loop." data-es="Convertir la repetición en un ciclo de aprendizaje atractivo.">Convertir la repetición en un ciclo de aprendizaje atractivo.</dd>
+                                    </div>
+                                    <div>
+                                        <dt data-en="Solution" data-es="Solución">Solución</dt>
+                                        <dd data-en="A responsive 3D experience with practice and timed modes." data-es="Una experiencia 3D responsive con modos de práctica y contrarreloj.">Una experiencia 3D responsive con modos de práctica y contrarreloj.</dd>
+                                    </div>
+                                </dl>
+                                <div class="project-tags">
+                                    <span>Next.js</span>
+                                    <span>TypeScript</span>
+                                    <span>React Three Fiber</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://mathgame-blond.vercel.app/" target="_blank" rel="noreferrer">
+                                        <i class="fas fa-arrow-up-right-from-square"></i>
+                                        <span data-en="Live preview" data-es="Ver online">Ver online</span>
+                                    </a>
+                                    <a href="https://github.com/Joao1-Silva/mathgame" target="_blank" rel="noreferrer">
+                                        <i class="fab fa-github"></i>
+                                        <span data-en="View code" data-es="Ver código">Ver código</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card reveal">
+                            <div class="project-media project-media-contain">
+                                <img src="src/img/vdolar.png" width="909" height="568" alt="Interfaz de vdolarjs" loading="lazy" decoding="async">
+                            </div>
+                            <div class="project-content">
+                                <span class="project-type" data-en="Utility product" data-es="Producto de utilidad">Producto de utilidad</span>
                                 <h3 class="project-title">vdolarjs</h3>
                                 <p
                                     class="project-copy"
-                                    data-en="A web tool designed to estimate how far a user's mobile balance can go based on digital consumption. A simple, useful product built around a concrete need."
-                                    data-es="Herramienta web pensada para estimar cuánto puede rendir el saldo móvil de un usuario según su consumo digital. Un producto simple, útil y orientado a una necesidad concreta."
+                                    data-en="A focused web calculator that estimates how long a mobile balance can last according to the user's digital consumption."
+                                    data-es="Calculadora web enfocada en estimar cuánto puede durar un saldo móvil según el consumo digital del usuario."
                                 >
-                                    Herramienta web pensada para estimar cuánto puede rendir el saldo móvil de un usuario según su consumo digital. Un producto simple, útil y orientado a una necesidad concreta.
+                                    Calculadora web enfocada en estimar cuánto puede durar un saldo móvil según el consumo digital del usuario.
                                 </p>
+                                <dl class="case-points">
+                                    <div>
+                                        <dt data-en="Challenge" data-es="Reto">Reto</dt>
+                                        <dd data-en="Translate consumption data into an immediate, useful answer." data-es="Traducir datos de consumo en una respuesta inmediata y útil.">Traducir datos de consumo en una respuesta inmediata y útil.</dd>
+                                    </div>
+                                    <div>
+                                        <dt data-en="Solution" data-es="Solución">Solución</dt>
+                                        <dd data-en="A direct calculation flow with a lightweight interface." data-es="Un flujo de cálculo directo con una interfaz ligera.">Un flujo de cálculo directo con una interfaz ligera.</dd>
+                                    </div>
+                                </dl>
                                 <div class="project-tags">
                                     <span>JavaScript</span>
-                                    <span data-en="Practical UI" data-es="UI práctica">UI práctica</span>
-                                    <span data-en="Useful product" data-es="Producto útil">Producto útil</span>
+                                    <span>CSS</span>
+                                    <span data-en="Product UX" data-es="UX de producto">UX de producto</span>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://github.com/Joao1-Silva/vdolarjs" target="_blank" rel="noreferrer">
                                         <i class="fab fa-github"></i>
                                         <span data-en="View code" data-es="Ver código">Ver código</span>
                                     </a>
-                                    <a href="https://vdolarjs.vercel.app/" target="_blank" rel="noreferrer">
-                                        <i class="fas fa-arrow-up-right-from-square"></i>
-                                        <span data-en="Live preview" data-es="Ver online">Ver online</span>
-                                    </a>
                                 </div>
                             </div>
                         </article>
 
-                        <div class="side-stack">
-                            <article class="info-card reveal">
-                                <h3 data-en="Your next case study" data-es="Tu próximo caso de estudio">Tu próximo caso de estudio</h3>
+                        <article class="project-card project-card-dark reveal">
+                            <div class="project-media project-code-visual" aria-hidden="true">
+                                <div class="code-window">
+                                    <span>POST /api/datos</span>
+                                    <span>{ qm_1, q_bruto_1, temp_1 }</span>
+                                    <span>GET /api/estadisticas</span>
+                                    <span>200 OK · JSON · CSV</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <span class="project-type" data-en="Industrial backend" data-es="Backend industrial">Backend industrial</span>
+                                <h3 class="project-title">API Fluxcy</h3>
                                 <p
-                                    data-en="This space is reserved for the next product, dashboard or web experience we build together."
-                                    data-es="Este espacio está reservado para el próximo producto, dashboard o experiencia web que construyamos juntos."
+                                    class="project-copy"
+                                    data-en="A REST API for collecting, validating and querying industrial data from a Wecon HMI in real time."
+                                    data-es="API REST para recolectar, validar y consultar datos industriales de un HMI Wecon en tiempo real."
                                 >
-                                    Este espacio está reservado para el próximo producto, dashboard o experiencia web que construyamos juntos.
+                                    API REST para recolectar, validar y consultar datos industriales de un HMI Wecon en tiempo real.
                                 </p>
-                                <a class="inline-link" href="#contact" data-en="Start the conversation" data-es="Iniciar conversación">
-                                    Iniciar conversación
-                                </a>
-                            </article>
-
-                            <article class="info-card info-card-dark reveal">
-                                <h3 data-en="Clear process" data-es="Proceso claro">Proceso claro</h3>
-                                <p
-                                    data-en="Every project starts from a simple logic: understand the goal, design the right structure and build a solution that can be presented with confidence."
-                                    data-es="Cada proyecto parte de una lógica simple: entender el objetivo, diseñar la estructura correcta y construir una solución que pueda presentarse con seguridad."
-                                >
-                                    Cada proyecto parte de una lógica simple: entender el objetivo, diseñar la estructura correcta y construir una solución que pueda presentarse con seguridad.
-                                </p>
-                                <ul class="process-list">
-                                    <li><span>01</span><span data-en="Goal" data-es="Objetivo">Objetivo</span></li>
-                                    <li><span>02</span><span data-en="Structure" data-es="Estructura">Estructura</span></li>
-                                    <li><span>03</span><span data-en="Build" data-es="Desarrollo">Desarrollo</span></li>
-                                    <li><span>04</span><span data-en="Delivery" data-es="Entrega">Entrega</span></li>
-                                </ul>
-                            </article>
-                        </div>
+                                <dl class="case-points">
+                                    <div>
+                                        <dt data-en="Challenge" data-es="Reto">Reto</dt>
+                                        <dd data-en="Centralize 17 industrial variables and make them queryable." data-es="Centralizar 17 variables industriales y hacerlas consultables.">Centralizar 17 variables industriales y hacerlas consultables.</dd>
+                                    </div>
+                                    <div>
+                                        <dt data-en="Solution" data-es="Solución">Solución</dt>
+                                        <dd data-en="Validated ingestion, MySQL persistence, filters and CSV export." data-es="Ingesta validada, persistencia MySQL, filtros y exportación CSV.">Ingesta validada, persistencia MySQL, filtros y exportación CSV.</dd>
+                                    </div>
+                                </dl>
+                                <div class="project-tags">
+                                    <span>Node.js</span>
+                                    <span>Express</span>
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Joao1-Silva/api-fluxcy" target="_blank" rel="noreferrer">
+                                        <i class="fab fa-github"></i>
+                                        <span data-en="View code" data-es="Ver código">Ver código</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
-            -->
 
             <section id="about" class="section">
+                <div class="section-scene scene-about" aria-hidden="true">
+                    <div class="scene-perspective about-scene-network">
+                        <span class="network-core">JS</span>
+                        <span class="network-orbit network-orbit-one"></span>
+                        <span class="network-orbit network-orbit-two"></span>
+                        <span class="network-node network-node-one">UI</span>
+                        <span class="network-node network-node-two">API</span>
+                        <span class="network-node network-node-three">DB</span>
+                    </div>
+                </div>
                 <div class="container about-grid">
                     <div class="section-heading reveal">
                         <p class="section-kicker" data-en="About" data-es="Sobre mí">Sobre mí</p>
@@ -546,23 +727,31 @@
             </section>
 
             <section id="contact" class="section">
+                <div class="section-scene scene-contact" aria-hidden="true">
+                    <div class="scene-perspective contact-scene-message">
+                        <span class="message-back"></span>
+                        <span class="message-front">@</span>
+                        <span class="message-spark message-spark-one"></span>
+                        <span class="message-spark message-spark-two"></span>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="contact-panel reveal">
                         <div class="contact-copy">
                             <p class="section-kicker" data-en="Contact" data-es="Contacto">Contacto</p>
                             <h2
                                 class="section-title"
-                                data-en="If you want a website that sells better or software that solves better, this is where we start."
-                                data-es="Si quieres una web que venda mejor o un software que resuelva mejor, aquí empezamos."
+                                data-en="Tell me what you want to build."
+                                data-es="Cuéntame qué quieres construir."
                             >
-                                Si quieres una web que venda mejor o un software que resuelva mejor, aquí empezamos.
+                                Cuéntame qué quieres construir.
                             </h2>
                             <p
                                 class="section-copy"
-                                data-en="Available for collaborations, freelance work and tailored digital products."
-                                data-es="Disponible para colaboraciones, proyectos freelance y productos digitales a medida."
+                                data-en="Complete this short brief and your email app will open with the project details ready to send."
+                                data-es="Completa este brief breve y se abrirá tu aplicación de correo con los datos del proyecto listos para enviar."
                             >
-                                Disponible para colaboraciones, proyectos freelance y productos digitales a medida.
+                                Completa este brief breve y se abrirá tu aplicación de correo con los datos del proyecto listos para enviar.
                             </p>
                             <div class="contact-actions">
                                 <a class="contact-button" href="mailto:jonathansilvads@hotmail.com">
@@ -580,23 +769,65 @@
                             </div>
                         </div>
 
-                        <aside class="contact-aside">
-                            <p class="aside-label" data-en="Availability" data-es="Disponibilidad">Disponibilidad</p>
-                            <p
-                                class="aside-value"
-                                data-en="Remote · freelance · collaborations"
-                                data-es="Remoto · freelance · colaboraciones"
-                            >
-                                Remoto · freelance · colaboraciones
+                        <form class="contact-form" id="projectForm">
+                            <div class="form-row">
+                                <label for="contactName" data-en="Name" data-es="Nombre">Nombre</label>
+                                <input
+                                    id="contactName"
+                                    name="name"
+                                    type="text"
+                                    autocomplete="name"
+                                    required
+                                    data-placeholder-en="How should I address you?"
+                                    data-placeholder-es="¿Cómo te llamas?"
+                                    placeholder="¿Cómo te llamas?"
+                                >
+                            </div>
+                            <div class="form-row">
+                                <label for="contactEmail" data-en="Email" data-es="Email">Email</label>
+                                <input
+                                    id="contactEmail"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                    data-placeholder-en="you@email.com"
+                                    data-placeholder-es="tu@email.com"
+                                    placeholder="tu@email.com"
+                                >
+                            </div>
+                            <div class="form-row">
+                                <label for="projectType" data-en="Project type" data-es="Tipo de proyecto">Tipo de proyecto</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="" data-en="Select an option" data-es="Selecciona una opción">Selecciona una opción</option>
+                                    <option value="launch" data-en="Launch Page" data-es="Launch Page">Launch Page</option>
+                                    <option value="dashboard" data-en="Business Dashboard" data-es="Dashboard de negocio">Dashboard de negocio</option>
+                                    <option value="mvp" data-en="MVP or custom software" data-es="MVP o software a medida">MVP o software a medida</option>
+                                    <option value="collaboration" data-en="Collaboration" data-es="Colaboración">Colaboración</option>
+                                    <option value="other" data-en="Other" data-es="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label for="projectMessage" data-en="What do you need?" data-es="¿Qué necesitas?">¿Qué necesitas?</label>
+                                <textarea
+                                    id="projectMessage"
+                                    name="message"
+                                    rows="5"
+                                    required
+                                    data-placeholder-en="Goal, context and any deadline you have in mind."
+                                    data-placeholder-es="Objetivo, contexto y fecha que tienes en mente."
+                                    placeholder="Objetivo, contexto y fecha que tienes en mente."
+                                ></textarea>
+                            </div>
+                            <button class="contact-button form-submit" type="submit">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                <span data-en="Prepare email" data-es="Preparar email">Preparar email</span>
+                            </button>
+                            <p class="form-note" data-en="No data is stored on this site." data-es="Esta web no almacena tus datos.">
+                                Esta web no almacena tus datos.
                             </p>
-                            <p
-                                class="aside-text"
-                                data-en="This site is meant to make the next conversation easier: what I do, how I do it and where we can start."
-                                data-es="Esta web está pensada para facilitar la próxima conversación: qué hago, cómo lo hago y por dónde podemos empezar."
-                            >
-                                Esta web está pensada para facilitar la próxima conversación: qué hago, cómo lo hago y por dónde podemos empezar.
-                            </p>
-                        </aside>
+                            <p class="form-status" id="formStatus" aria-live="polite"></p>
+                        </form>
                     </div>
                 </div>
             </section>
